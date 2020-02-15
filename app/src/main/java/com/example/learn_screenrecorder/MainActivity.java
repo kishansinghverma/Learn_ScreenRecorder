@@ -60,15 +60,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(resultCode==RESULT_OK) {
-            /*mMediaProjectionCallback = new MediaProjectionCallback();
-            mMediaProjection = mProjectionManager.getMediaProjection(resultCode, data);
-            mMediaProjection.registerCallback(mMediaProjectionCallback, null);
-            mVirtualDisplay = createVirtualDisplay();
-            mMediaRecorder.start();
-            isRecording = true;*/
-
             Intent intent=new Intent(MainActivity.this, RecorderHelper.class);
             intent.replaceExtras(data);
+            intent.putExtra("Duration", 10);
 
             startForegroundService(intent);
         }
