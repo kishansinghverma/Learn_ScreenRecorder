@@ -73,13 +73,13 @@ public class RecorderHelper extends Service {
         return START_STICKY;
     }
 
-    private VirtualDisplay createVirtualDisplay(MediaProjection projection, MediaRecorder recorder, DisplayMetrics metrics) {
+    public VirtualDisplay createVirtualDisplay(MediaProjection projection, MediaRecorder recorder, DisplayMetrics metrics) {
         VirtualDisplay display= projection.createVirtualDisplay("Mirror Display", metrics.widthPixels, metrics.heightPixels,
                 metrics.densityDpi, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, recorder.getSurface(), null, null);
         return display;
     }
 
-    private void initRecorder(MediaRecorder recorder, Display display, DisplayMetrics metrics) {
+    public void initRecorder(MediaRecorder recorder, Display display, DisplayMetrics metrics) {
         try {
             recorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
             recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
